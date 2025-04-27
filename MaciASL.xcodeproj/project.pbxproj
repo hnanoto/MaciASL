@@ -493,7 +493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			
+			shellScript = "if [ \"$CONFIGURATION\" = \"Release\" ]; then\necho \"Providing Sparkle entry support for ${TARGET_BUILD_DIR}/MaciASL.app in $CONFIGURATION mode\"\nplutil -insert \"SUAllowsAutomaticUpdates\" -bool true ${TARGET_BUILD_DIR}/MaciASL.app/Contents/Info.plist || echo \"Skipping\"\nplutil -insert \"SUEnableAutomaticChecks\" -bool true ${TARGET_BUILD_DIR}/MaciASL.app/Contents/Info.plist || echo \"Skipping\"\nplutil -insert \"SUFeedURL\" -string \"https://raw.githubusercontent.com/acidanthera/MaciASL/appcast/appcast.xml\" ${TARGET_BUILD_DIR}/MaciASL.app/Contents/Info.plist || echo \"Skipping\"\nplutil -insert \"SUPublicEDKey\" -string \"d6TTl9OeRP+CH+IiQwgLCUsxj6DXK+Fnrcfmcj61ANk=\" ${TARGET_BUILD_DIR}/MaciASL.app/Contents/Info.plist || echo \"Skipping\"\nplutil -insert \"SUScheduledCheckInterval\" -integer \"86400\" ${TARGET_BUILD_DIR}/MaciASL.app/Contents/Info.plist || echo \"Skipping\"\nelse\necho \"Skipping Sparkle support for ${TARGET_BUILD_DIR}/MaciASL.app in $CONFIGURATION mode\"\nfi\n";
 		};
 		CE775909211C252C0063EAE6 /* Archive */ = {
 			isa = PBXShellScriptBuildPhase;
